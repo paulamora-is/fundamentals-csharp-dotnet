@@ -1,0 +1,6 @@
+@fundamentals.csharp.dotnet.api.HostAddress = http://localhost:5298
+
+GET {{fundamentals.csharp.dotnet.api.HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

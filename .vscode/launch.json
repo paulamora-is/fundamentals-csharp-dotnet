@@ -1,0 +1,26 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch fundamentals.csharp.dotnet.api (net9.0)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/fundamentals.csharp.dotnet.api/bin/Debug/net9.0/fundamentals.csharp.dotnet.api.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/fundamentals.csharp.dotnet.api",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development",
+                "ASPNETCORE_URLS": "https://localhost:7070;http://localhost:5199"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/fundamentals.csharp.dotnet.api/Views"
+            }
+        }
+    ]
+}

@@ -112,7 +112,7 @@ O objetivo é **modernizar o núcleo do sistema** utilizando **C# moderno**, apl
 
 Os fundamentos teóricos estudados durante o desenvolvimento estão detalhados em:
 
-👉 [`Docs/Concepts.md`](Docs/Concepts.md)
+👉 [`Docs/concepts.md`](Docs/concepts.md)
 
 ## 💾 Como rodar o projeto
 

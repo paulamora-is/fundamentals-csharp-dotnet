@@ -26,24 +26,44 @@ public class CurrentAccount(int id, string accountNumber, string agencyNumber,
         return currentAccount.AccountStatus.Equals(AccountStatus.Active);
     }
 
+    public void Withdraw(decimal amount, CurrentAccount currentAccount)
+    {
+        if (!CanProcessTransaction(currentAccount, amount))
+        {
+            return;
+        }
+        
+        currentAccount.Balance -= amount;
+    }
+
     public void Deposit(decimal amount, CurrentAccount targetAccount, CurrentAccount sourceAccount)
     {
-        if (!IsActive(targetAccount))
+        if (!CanProcessTransaction(sourceAccount, amount) && !IsActive(targetAccount))
         {
-            throw new InvalidOperationException("Cannot deposit to an inactive account.");
+            return;
+        }
+        
+        targetAccount.Balance += amount;
+        sourceAccount.Balance -= amount;
+    }
+
+    private bool CanProcessTransaction(CurrentAccount currentAccount, decimal amount)
+    {
+        if (!IsActive(currentAccount))
+        {
+            return false;
         }
 
-        if(!IsEnoughBalance(amount))
+        if (!IsEnoughBalance(amount))
         {
-            throw new InvalidOperationException("Insufficient balance for the deposit.");
+            return false;
         }
 
         if (amount <= 0)
         {
-            throw new ArgumentException("Deposit amount must be greater than zero.");
+            return false;
         }
 
-        targetAccount.Balance += amount;
-        sourceAccount.Balance -= amount;
+        return true;
     }
 }

@@ -24,7 +24,7 @@ public class ClientData : IClientData
 
     public Client GetClientById(int id)
     {
-        return _clients.FirstOrDefault(c => c.Id.Equals(id));
+        return _clients.FirstOrDefault(c => c.Id == id);
     }
 
     public void AddClient(Client client)

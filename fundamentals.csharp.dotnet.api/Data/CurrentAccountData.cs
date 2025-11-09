@@ -21,7 +21,7 @@ public class CurrentAccountData : ICurrentAccountData
 
     public CurrentAccount GetCurrentAccountById(int id)
     {
-        return _currentAccounts.FirstOrDefault(ca => ca.Id.Equals(id));
+        return _currentAccounts.FirstOrDefault(ca => ca.Id == id);
     }
 
     public void AddCurrentAccount(CurrentAccount currentAccount)

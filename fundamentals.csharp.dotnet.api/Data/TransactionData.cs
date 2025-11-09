@@ -26,10 +26,15 @@ public class TransactionData : ITransactionData
     {
         _transactions.Add(transaction);
     }
-    
+
     public List<Transaction> GetAllTransactions()
     {
         return _transactions;
+    }
+    
+    public Transaction GetTransactionById(int id)
+    {
+        return _transactions.FirstOrDefault(t => t.Id == id);
     }
 
    private static CurrentAccount GetCurrentAccountData(int id)
